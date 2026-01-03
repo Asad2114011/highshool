@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="all-news-page">
+    <h4>All Events & Achievements</h4>
+
+    <div class="all-news-container">
+        {% for card in page_obj %}
+        <div class="all-news-card">
+
+            <!-- Image -->
+            <div>
+                {% if card.image %}
+                    <img src="{{ card.image.url }}" alt="{{ card.title }}">
+                {% else %}
+                    <img src="{% static 'images/pic3.avif' %}" alt="No image">
+                {% endif %}
+                <p class="all-news-date">Date: {{ card.date }}</p>
+            </div>
+
+            <!-- Info -->
+            <div class="all-news-info">
+                <h3>{{ card.title }}</h3>
+                <a href="{% url 'news_detail' card.id %}" class="all-news-btn">View Details</a>
+            </div>
+
+        </div>
+        {% empty %}
+            <p>No events or achievements available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <div class="all-news-pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+<!-- complete  -->

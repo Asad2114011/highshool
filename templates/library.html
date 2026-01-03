@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="img_description_container" >
+    <!-- Carousel -->
+    <div class="carousel-container">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                {% for i in "0123" %}
+                <button type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"
+                    aria-current="{% if forloop.first %}true{% endif %}"
+                    aria-label="Slide {{ forloop.counter }}"></button>
+                {% endfor %}
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/pic1.jpg' %}" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/pic2.png' %}" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/pic3.avif' %}" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/pic11.jpg' %}" class="d-block w-100" alt="">
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div class="description">
+        <h3>Description</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nesciunt corporis dignissimos non
+            reiciendis excepturi, perspiciatis cumque est omnis culpa! Quisquam sed, molestiae eaque qui accusantium
+            voluptas dolorum dolor facere neque assumenda delectus vitae odit maxime pariatur, quis in? Voluptatem,
+            repellendus temporibus. Quidem ipsam distinctio laudantium consequatur eos voluptates amet omnis? Quas
+            quidem consequatur quos itaque officia corrupti quod ad nulla cupiditate voluptatum exercitationem maiores
+            impedit eligendi nostrum dolore provident laborum vero in, sequi at quo, assumenda fugiat vitae iusto?
+            Consequatur libero inventore ducimus quos voluptas dolor optio earum magnam, aspernatur delectus! Tempora
+            deleniti expedita veniam numquam deserunt nihil delectus!
+        </p>
+    </div>
+</div>
+
+{% endblock %}

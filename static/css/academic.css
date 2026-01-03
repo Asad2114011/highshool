@@ -1,0 +1,279 @@
+/* ================= Container ================= */
+.academic-container {
+    margin: 50px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    background: linear-gradient(135deg, #bcd0f3, #accec1);
+    border: 2px solid black;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* responsive font */
+    font-size: clamp(14px, 1.1vw, 16px);
+}
+
+.academic-container h4 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+/* ================= Desktop Table ================= */
+.academic-header,
+.academic-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.academic-header {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.academic-row {
+    border: 1px solid black;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.academic-header div,
+.academic-row div {
+    text-align: center;
+}
+
+/* ================= Buttons ================= */
+.btn-download {
+    display: inline-block;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(18, 6, 70);
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-download:hover {
+    background-color: rgb(45, 8, 140);
+}
+
+/* ================= Empty State ================= */
+.no-academic {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* ================= Pagination ================= */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    padding: 6px 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.page-btn:hover {
+    background-color: #ddd;
+}
+
+/* ================= Mobile Layout ================= */
+@media (max-width: 768px) {
+
+    .academic-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .academic-container h4 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Hide table header */
+    .academic-header {
+        display: none;
+    }
+
+    /* Card-style rows */
+    .academic-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .academic-row div {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    /* Dynamic labels based on column position */
+    .academic-row div:nth-child(1)::before {
+        content: attr(data-label);
+        font-weight: 600;
+    }
+
+    .academic-row div:nth-child(2)::before {
+        content: attr(data-label);
+        font-weight: 600;
+    }
+
+    .academic-row div:nth-child(3)::before {
+        content: attr(data-label);
+        font-weight: 600;
+    }
+
+    .academic-row div:nth-child(4)::before {
+        content: attr(data-label);
+        font-weight: 600;
+    }
+
+    .btn-download {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    .pagination {
+        font-size: 0.9rem;
+    }
+}
+/* ================= CALENDAR WRAPPER ================= */
+.calendar-container {
+    max-width: 650px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= CALENDAR TABLE ================= */
+.calendar {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 420px; /* prevents squishing on very small screens */
+}
+
+/* ================= TABLE HEAD ================= */
+.calendar th {
+    background: #0b2c4d;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ================= TABLE BODY ================= */
+.calendar td {
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    height: 50px;
+    transition: background 0.2s ease;
+}
+
+.calendar td:hover {
+    background: #f4f6f8;
+}
+
+/* ================= TODAY HIGHLIGHT ================= */
+.calendar td.today {
+    background-color: #ffedd5;
+    color: #9a3412;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+/* ================= EMPTY CELLS ================= */
+.calendar td:empty {
+    background: #fafafa;
+}
+
+/* ================= MOBILE (PHONES) ================= */
+@media (max-width: 576px) {
+
+    .calendar-container {
+        margin: 15px;
+        padding: 14px;
+    }
+
+    .calendar-container h3 {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    .calendar table {
+        font-size: 12px;
+    }
+
+    .calendar th,
+    .calendar td {
+        padding: 6px;
+    }
+
+    .calendar td {
+        height: 42px;
+    }
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 577px) and (max-width: 768px) {
+
+    .calendar-container {
+        max-width: 90%;
+    }
+
+    .calendar th,
+    .calendar td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .calendar td {
+        height: 46px;
+    }
+}
+
+/* ================= LARGE SCREENS ================= */
+@media (min-width: 1200px) {
+
+    .calendar-container {
+        max-width: 700px;
+    }
+
+    .calendar th,
+    .calendar td {
+        font-size: 15px;
+    }
+}

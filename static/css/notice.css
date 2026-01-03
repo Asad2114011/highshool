@@ -1,0 +1,121 @@
+/* Notice Detail Page */
+.notice-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #bcd0f3, #accec1);
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 900px;
+}
+
+.notice-detail-title {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.notice-detail-date {
+    margin: 5px 0 20px 0;
+    font-weight: bold;
+}
+
+.notice-detail-image img {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px 0;
+    border: 3px solid rgb(17, 5, 49);
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .notice-detail-container {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    .notice-detail-image img {
+        margin: 15px 0;
+    }
+}
+
+/* Notice List Page */
+.notice-board-container {
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #bcd0f3, #accec1);
+    border: 2px solid black;
+    border-radius: 8px;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notice-board-title {
+    margin: 20px 0;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.notice-board-hr {
+    width: 50%;
+    border-color: rgb(38, 14, 96);
+    margin-bottom: 20px;
+}
+
+.notice-board-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.notice-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgb(245, 245, 241);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.notice-item-title {
+    flex: 1 1 50%;
+}
+
+.notice-item-date {
+    flex: 1 1 auto;
+    font-size: small;
+}
+
+.notice-board-pagination {
+    margin: 30px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .notice-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notice-item-title,
+    .notice-item-date {
+        flex: 1 1 100%;
+    }
+}

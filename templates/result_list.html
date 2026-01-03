@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="academic-container">
+
+    <h4>All Results</h4>
+
+    <!-- Table Header -->
+    <div class="academic-header">
+        <div>Class Name</div>
+        <div>Exam Name</div>
+        <div>Year</div>
+        <div>File</div>
+    </div>
+
+    <!-- Results List -->
+    {% for r in page_obj %}
+    <div class="academic-row">
+        <div data-label="Class:">{{ r.class_name }}</div>
+        <div data-label="Exam:">{{ r.exam_name }}</div>
+        <div data-label="Year:">{{ r.year }}</div>
+        <div data-label="File:">
+            <a href="{% url 'download_result' r.id %}" class="btn-download">Download</a>
+        </div>
+    </div>
+    {% empty %}
+    <p class="no-academic">No results found.</p>
+    {% endfor %}
+
+    <!-- Pagination -->
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">Previous</a>
+        {% endif %}
+
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="page-btn">Next</a>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

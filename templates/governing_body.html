@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="administration-body-page">
+
+    <!-- Page Title -->
+    <div class="administration-body-header">
+        <h2>Governing Body</h2>
+        <p>Patrakhola Arshad Ali High School</p>
+    </div>
+
+    <!-- Members Container -->
+    <div class="administration-body-container">
+
+        <!-- Member Card -->
+        <div class="administration-card">
+            <img src="{% static 'images/pic1.jpg' %}" alt="President">
+            <h5>Mr. Abdul Karim</h5>
+            <p><strong>Position:</strong> President</p>
+            <p>Senior Educationist</p>
+        </div>
+
+        <div class="administration-card">
+            <img src="{% static 'images/pic1.jpg' %}" alt="Vice President">
+            <h5>Mr. Md. Rahman</h5>
+            <p><strong>Position:</strong> Vice President</p>
+            <p>Social Worker</p>
+        </div>
+
+        <div class="administration-card">
+            <img src="{% static 'images/pic1.jpg' %}" alt="Head Teacher">
+            <h5>Mr. Ashraf Ali</h5>
+            <p><strong>Position:</strong> Head Teacher (Member Secretary)</p>
+            <p>M.A., B.Ed</p>
+        </div>
+
+        <div class="administration-card">
+            <img src="{% static 'images/pic1.jpg' %}" alt="Guardian Member">
+            <h5>Mr. Hasan Ali</h5>
+            <p><strong>Position:</strong> Guardian Member</p>
+            <p>Businessman</p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+<!-- complete  -->

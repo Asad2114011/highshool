@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="news-detail-container">
+
+    <!-- Image -->
+    <div class="news-detail-image">
+        {% if card.image %}
+            <img src="{{ card.image.url }}" alt="{{ card.title }}">
+        {% else %}
+            <img src="{% static 'images/pic3.avif' %}" alt="No Image">
+        {% endif %}
+    </div>
+
+    <!-- Date -->
+    <p class="news-detail-date">Date: {{ card.date }}</p>
+
+    <!-- Title -->
+    <h2 class="news-detail-title">{{ card.title }}</h2>
+
+    <!-- Description -->
+    {% if card.description %}
+    <p class="news-detail-description">{{ card.description }}</p>
+    {% endif %}
+
+    <!-- Back Button -->
+    <div class="news-detail-back">
+        <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+    </div>
+
+</div>
+
+{% endblock %}
