@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,9 +86,11 @@ WSGI_APPLICATION = 'school_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-import dj_database_url  # Add this at the top with other imports
 
 # ... your existing code ...
+
+# Database - keep SQLite for local, PostgreSQL for production
+
 
 # Database - keep SQLite for local, PostgreSQL for production
 DATABASES = {
@@ -99,8 +102,14 @@ DATABASES = {
 
 # Use PostgreSQL on Render (production)
 if os.environ.get('DATABASE_URL'):
-    DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
-
+    DATABASES['default'] = dj_database_url.parse(
+        os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+    )
+    # Add SSL requirement for Supabase
+    DATABASES['default']['OPTIONS'] = {
+        'sslmode': 'require'
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
