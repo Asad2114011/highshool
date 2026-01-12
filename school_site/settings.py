@@ -148,3 +148,5 @@ cloudinary.config(
 
 # Use Cloudinary for media file storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# test 
