@@ -164,6 +164,9 @@ cloudinary.config(
     api_key=os.environ.get('CLOUDINARY_API_KEY', '618251283475261'),
     api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'tF9auUpvXm7GQ5_UbKaSEeUjtFQ'),
 )
+CLOUDINARY_STORAGE = {
+    'SECURE': True,
+}
 
 # Use Cloudinary for media file storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
