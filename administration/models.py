@@ -21,7 +21,7 @@ class Teacher(models.Model):
 class Staff(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='staff/',blank=True)
+    photo = CloudinaryField('staff',blank=True)
     phone = models.CharField(max_length=20, blank=True)
     priority = models.PositiveIntegerField(default=0)
 
@@ -35,7 +35,7 @@ class Staff(models.Model):
 class GoverningBody(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='governing_body/',blank=True)
+    photo = CloudinaryField('governing_body',blank=True)
     priority = models.PositiveIntegerField(default=0)
 
     class Meta:
