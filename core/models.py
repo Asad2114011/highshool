@@ -1,9 +1,10 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class NewsCard(models.Model):
     title=models.CharField(max_length=200)
-    image=models.ImageField(upload_to='news_card/')
+    image=CloudinaryField('news_card')
     description=models.TextField()
     date=models.DateField(auto_now_add=True)
 
@@ -36,38 +37,37 @@ class class_syllabus(models.Model):
     def __str__(self):
         return f"{self.class_name} Routine"
 
-from django.db import models
 
 class HomepageCarousel(models.Model):
-    image = models.ImageField(upload_to='carousel/homepage/')
+    image = CloudinaryField('carousel_homepage')
 
     def __str__(self):
         return f"Homepage Image {self.id}"
 
 
 class PlaygroundCarousel(models.Model):
-    image = models.ImageField(upload_to='carousel/playground/')
+    image = CloudinaryField('carousel_playground')
 
     def __str__(self):
         return f"Playground Image {self.id}"
 
 
 class LibraryCarousel(models.Model):
-    image = models.ImageField(upload_to='carousel/library/')
+    image = CloudinaryField('carousel_library')
 
     def __str__(self):
         return f"Library Image {self.id}"
 
 
 class ScienceLabCarousel(models.Model):
-    image = models.ImageField(upload_to='carousel/science_lab/')
+    image = CloudinaryField('carousel_science_lab')
 
     def __str__(self):
         return f"Science Lab Image {self.id}"
 
 
 class UniformCarousel(models.Model):
-    image = models.ImageField(upload_to='carousel/uniform/')
+    image = CloudinaryField('carousel_uniform')
 
     def __str__(self):
         return f"Uniform Image {self.id}"
