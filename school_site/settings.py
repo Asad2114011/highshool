@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,10 +25,10 @@ import cloudinary.api
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-snyb8e=9ppx2()^(&-g7nv!yw+h&sfkvqfo+5oyb-ugh@r3ppb'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-snyb8e=9ppx2()^(&-g7nv!yw+h&sfkvqfo+5oyb-ugh@r3ppb')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,21 +126,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# WhiteNoise configuration for static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 cloudinary.config(
-    cloud_name="dbwwbghdy",
-    api_key="618251283475261",
-    api_secret="tF9auUpvXm7GQ5_UbKaSEeUjtFQ",
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dbwwbghdy'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY', '618251283475261'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'tF9auUpvXm7GQ5_UbKaSEeUjtFQ'),
 )
