@@ -15,6 +15,7 @@ class Teacher(models.Model):
         ordering = ['priority']
 
     def __str__(self):
+        
         return self.name
 
 
