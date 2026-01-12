@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
     'core',
     'notices',
@@ -139,13 +138,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-# Use Cloudinary storage only in production
-if not os.environ.get('DEBUG', 'True') == 'True':
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# Cloudinary configuration
 cloudinary.config(
     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dbwwbghdy'),
     api_key=os.environ.get('CLOUDINARY_API_KEY', '618251283475261'),
     api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'tF9auUpvXm7GQ5_UbKaSEeUjtFQ'),
 )
-# hah 
+
+# Use Cloudinary for media file storage
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
