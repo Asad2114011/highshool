@@ -4,47 +4,40 @@
 
 <div class="administration-body-page">
 
-    <!-- Page Title -->
     <div class="administration-body-header">
         <h2>Teachers</h2>
         <p>Patrakhola Arshad Ali High School</p>
     </div>
 
-    <!-- Members Container -->
     <div class="administration-body-container">
+        <!-- member card -->
 
-        <!-- Member Card -->
+        {% for t in teachers %}
         <div class="administration-card">
-            <img src="{% static 'images/pic1.jpg' %}" alt="President">
-            <h5>Mr. Abdul Karim</h5>
-            <p><strong>designation:</strong> President</p>
-            <p>Senior Educationist</p>
-        </div>
+            
+            {% if t.photo %}
+                <img src="{{ t.photo.url }}" alt="{{ t.name }}">
+            {% else %}
+                <img src="{% static 'images/no_face.png' %}" alt="{{ t.name }}">
+            {% endif %}
 
-        <div class="administration-card">
-            <img src="{% static 'images/pic1.jpg' %}" alt="Vice President">
-            <h5>Mr. Md. Rahman</h5>
-            <p><strong>Position:</strong> Vice President</p>
-            <p>Social Worker</p>
-        </div>
+            <h5>{{ t.name }}</h5>
 
-        <div class="administration-card">
-            <img src="{% static 'images/pic1.jpg' %}" alt="Head Teacher">
-            <h5>Mr. Ashraf Ali</h5>
-            <p><strong>Position:</strong> Head Teacher (Member Secretary)</p>
-            <p>M.A., B.Ed</p>
-        </div>
+            <p>
+                <strong>Designation:</strong> {{ t.designation }}
+            </p>
 
-        <div class="administration-card">
-            <img src="{% static 'images/pic1.jpg' %}" alt="Guardian Member">
-            <h5>Mr. Hasan Ali</h5>
-            <p><strong>Position:</strong> Guardian Member</p>
-            <p>Businessman</p>
+            {% if t.subject %}
+                <p>{{ t.subject }}</p>
+            {% endif %}
+
         </div>
+        {% empty %}
+            <p style="text-align:center;">No teachers found.</p>
+        {% endfor %}
 
     </div>
 
 </div>
 
 {% endblock %}
-<!-- complete  -->

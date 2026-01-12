@@ -6,14 +6,14 @@
 
     <h4>Class Routine</h4>
 
-    <!-- Table Header -->
+    <!-- header -->
     <div class="academic-header">
         <div>Class</div>
         <div>Date</div>
         <div>File</div>
     </div>
 
-    <!-- Results List -->
+    <!-- routine list -->
     {% for r in page_obj %}
     <div class="academic-row">
         <div data-label="Class:">{{ r.class_name }}</div>
@@ -26,7 +26,7 @@
     <p class="no-academic">No routine found.</p>
     {% endfor %}
 
-    <!-- Pagination -->
+    <!-- pagination -->
     <div class="pagination">
         {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">Previous</a>

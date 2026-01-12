@@ -4,13 +4,10 @@
 
 <div class="notice-detail-container">
 
-    <!-- Title -->
     <h2 class="notice-detail-title">{{ notice.title }}</h2>
 
-    <!-- Date -->
     <p class="notice-detail-date">Date: {{ notice.created_at }}</p>
 
-    <!-- Image -->
     {% if notice.image %}
     <div class="notice-detail-image">
         <img src="{{ notice.image.url }}" alt="No image attached">

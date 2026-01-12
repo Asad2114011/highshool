@@ -15,6 +15,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -25,7 +29,7 @@ SECRET_KEY = 'django-insecure-snyb8e=9ppx2()^(&-g7nv!yw+h&sfkvqfo+5oyb-ugh@r3ppb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -41,7 +45,8 @@ INSTALLED_APPS = [
     'core',
     'notices',
     'administration',
-    'gallary',
+    'cloudinary',
+
 ]
 
 MIDDLEWARE = [
@@ -128,5 +133,12 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+cloudinary.config(
+    cloud_name="dbwwbghdy",
+    api_key="618251283475261",
+    api_secret="tF9auUpvXm7GQ5_UbKaSEeUjtFQ",
+)

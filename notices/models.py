@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Notice(models.Model):
     title=models.CharField(max_length=200)
-    image=models.ImageField(upload_to='notice_img/')
+    image=models.ImageField(upload_to='notice_img/',blank=True)
     created_at=models.DateField(auto_now_add=True)
 
     def __str__(self):

@@ -9,7 +9,7 @@
         {% for card in page_obj %}
         <div class="all-news-card">
 
-            <!-- Image -->
+            <!-- image -->
             <div>
                 {% if card.image %}
                     <img src="{{ card.image.url }}" alt="{{ card.title }}">
@@ -19,7 +19,7 @@
                 <p class="all-news-date">Date: {{ card.date }}</p>
             </div>
 
-            <!-- Info -->
+            <!-- info -->
             <div class="all-news-info">
                 <h3>{{ card.title }}</h3>
                 <a href="{% url 'news_detail' card.id %}" class="all-news-btn">View Details</a>
@@ -31,7 +31,7 @@
         {% endfor %}
     </div>
 
-    <!-- Pagination -->
+    <!-- pagination -->
     <div class="all-news-pagination">
         {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
@@ -46,4 +46,3 @@
 </div>
 
 {% endblock %}
-<!-- complete  -->

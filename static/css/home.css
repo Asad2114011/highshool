@@ -1,5 +1,4 @@
 
-/* ---------------- Notice Bar ---------------- */
 .notice-bar {
     height: 40px;
     border: 2px solid black;
@@ -25,7 +24,6 @@
 }
 
 
-/* ---------------- Carousel & Description ---------------- */
 
 .img_description_container {
     display: flex;
@@ -43,15 +41,14 @@
 .carousel-inner {
     width: 100%;
     height: 400px;
-    /* desktop fixed height */
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .carousel-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* all images fill same space */
 }
 
 .description {
@@ -64,13 +61,11 @@
     align-items: center;
 }
 
-/* ---------------- Mobile & Tablet ---------------- */
 @media (max-width: 768px) {
 
     .img_description_container {
         flex-direction: column;
         gap: 20px;
-        /* gap between carousel & description */
         margin: 0;
     }
 
@@ -80,11 +75,9 @@
         flex: none;
     }
 
-    /* Fixed image area + remove border */
     .carousel-inner {
         width: 100%;
         height: 220px;
-        /* fixed mobile height */
         border: none;
         border-radius: 0;
         overflow: hidden;
@@ -94,10 +87,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* all images look same */
     }
 
-    /* Indicators stay inside image */
     .carousel-indicators {
         bottom: 8px;
     }
@@ -110,16 +101,13 @@
     }
 }
 
-/* ---------------- Optional: small mobile screens ---------------- */
 @media (max-width: 576px) {
     .carousel-inner {
         height: 180px;
-        /* slightly smaller for very small devices */
     }
 }
 
 
-/* ---------------- Cards: Mission / Vision / Objectives ---------------- */
 .cards-container {
     margin: 10px;
     display: flex;
@@ -155,17 +143,16 @@
     height: 50px;
 }
 .modal-container {
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0); /* soft gray gradient */
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0); 
     border-radius: 12px;
     padding: 25px 30px;
     max-width: 500px;
     margin: auto;
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    color: #1f2933; /* dark text for readability */
+    color: #1f2933; 
 }
 
 
-/* ---------------- Speech Section ---------------- */
 .speech-section {
     display: flex;
     flex-direction: column;
@@ -192,7 +179,6 @@
     min-width: 250px;
 }
 
-/* ---------------- Events & Achievements ---------------- */
 .events-container {
     background: linear-gradient(135deg, #bcd0f3, #accec1);
     margin: 10px;
@@ -259,7 +245,6 @@
     margin-top: 20px;
 }
 
-/* ---------------- Location ---------------- */
 .location-container {
     border: 2px solid #1a1818;
     background: linear-gradient(135deg, #bcd0f3, #accec1);
@@ -278,7 +263,6 @@
     border-radius: 8px;
 }
 
-/* ---------------- Responsive Media Queries ---------------- */
 @media (max-width: 992px) {
 
     .speech {

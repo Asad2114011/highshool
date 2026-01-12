@@ -6,13 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/administration.css' %}">
@@ -47,11 +44,11 @@
 
 <body class="d-flex flex-column min-vh-100 site-body" style="font-family: Arial, Helvetica, sans-serif;">
 
-    <!-- HEADER -->
+    <!-- header -->
     <header class="site-header">
         <div class="header-logo">
             <a href="{% url 'home' %}">
-                <img src="{% static 'images/logo_update.png' %}" alt="Logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
             </a>
         </div>
 
@@ -59,7 +56,7 @@
             <h1>Patrakhola Arshad Ali High School</h1>
             <div class="header-details">
                 <h3>Shyamnagar, Satkhira</h3>
-                <h4>Estb: 1993 | EIIN - 118946</h4>
+                <h4>Estb: 1995 | EIIN - 118946</h4>
             </div>
         </div>
     </header>
@@ -83,7 +80,7 @@
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
 
-                    <!-- About -->
+                    <!-- about -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">About</a>
@@ -95,7 +92,7 @@
                         </ul>
                     </li>
 
-                    <!-- Administration -->
+                    <!-- administration -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Administration</a>
@@ -106,7 +103,7 @@
                         </ul>
                     </li>
 
-                    <!-- Academic -->
+                    <!-- academic -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Academic</a>
@@ -119,7 +116,7 @@
                         </ul>
                     </li>
 
-                    <!-- Facilities -->
+                    <!-- facilities -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Facilities</a>
@@ -130,12 +127,12 @@
                         </ul>
                     </li>
 
-                    <!-- Notice -->
+                    <!-- notice -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'notice_list' %}">Notice</a>
                     </li>
 
-                    <!-- Gallery -->
+                    <!-- gallery -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Gallery</a>
@@ -145,7 +142,7 @@
                         </ul>
                     </li>
 
-                    <!-- Contact -->
+                    <!-- contact -->
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
@@ -158,13 +155,13 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
+    <!-- main -->
     <main class="flex-fill">
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- FOOTER -->
+    <!-- footer -->
     <footer class="site-footer" id="contact">
         <div class="footer-section footer-links">
             <h3>Necessary Links</h3>
@@ -185,8 +182,8 @@
             <h3>Follow Us</h3>
             <hr>
             <ul class="social-icons">
-                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61558369554644"  target="_blank" ><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/@%E0%A6%AE%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF%E0%A6%B0%E0%A6%AA%E0%A6%A5-%E0%A6%B2%E0%A7%AD%E0%A6%99" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                 <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
             </ul>
@@ -199,19 +196,19 @@
                 <strong>Patrakhola Arshad Ali High School</strong><br>
                 Vetkhali Road, Patrakhola<br>
                 Shyamnagar, Satkhira<br>
-                📞 +880 1XXXXXXXXX<br>
-                📧 info@paahschool.edu.bd
+                📞 +880 1720586914<br>
+                📧 patrakholaarshadalihighschool@gmail.com
             </p>
         </div>
     </footer>
-
+    <!-- copyright  -->
     <div class="copyright">
         <h6><i class="fa-solid fa-copyright"></i> 2026. Patrakhola Arshad Ali High School, Shyamnagar. Developed by Asadullah (ssc 2019). Like us on 
             <a href="https://www.facebook.com/asad.galib.125" target="_blank" ><i class="fa-brands fa-facebook"></i></a>
         </h6>
     </div>
 
-    <!-- POPUP MODAL -->
+    <!-- popup modal -->
     <div class="modal fade" id="customPopupModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -228,7 +225,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/base.js' %}"></script>
 </body>

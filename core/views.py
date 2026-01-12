@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from . models import NewsCard,Result,class_routine,class_syllabus
+from . models import NewsCard,Result,class_routine,class_syllabus,HomepageCarousel,LibraryCarousel,ScienceLabCarousel,UniformCarousel,PlaygroundCarousel
 from django.core.paginator import Paginator
 from notices.models import Notice
 from django.http import FileResponse
@@ -12,7 +12,8 @@ from datetime import date
 def home(request):
     newscard=NewsCard.objects.all().order_by('-date')[:4]
     notice=Notice.objects.all().order_by('-created_at')[:3]
-    return render(request,'home.html',{'newscard':newscard,'notice':notice})
+    carousal=HomepageCarousel.objects.all()
+    return render(request,'home.html',{'newscard':newscard,'notice':notice,'carsl':carousal})
 
 def news_details(request,pk):
     card=get_object_or_404(NewsCard,pk=pk)
@@ -28,16 +29,20 @@ def all_news(request):
     return render(request,'all_news.html',{'page_obj':page_obj})
 
 def library(request):
-    return render(request,'library.html')
+    carousal=LibraryCarousel.objects.all()
+    return render(request,'library.html',{'carsl':carousal})
 
 def playground(request):
-    return render(request, 'playground.html')
+    carousal=PlaygroundCarousel.objects.all()
+    return render(request, 'playground.html',{'carsl':carousal})
 
 def science_lab(request):
-    return render(request,'science_lab.html')
+    carousal=ScienceLabCarousel.objects.all()
+    return render(request,'science_lab.html',{'carsl':carousal})
 
 def student_uniform(request):
-    return render(request,'student_uniform.html')
+    carousal=UniformCarousel.objects.all()
+    return render(request,'student_uniform.html',{'carsl':carousal})
 
 def result_list(request):
     result=Result.objects.all().order_by('-published_date')
