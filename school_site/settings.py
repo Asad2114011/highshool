@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,10 +27,10 @@ import cloudinary.api
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-snyb8e=9ppx2()^(&-g7nv!yw+h&sfkvqfo+5oyb-ugh@r3ppb')
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-snyb8e=9ppx2()^(&-g7nv!yw+h&sfkvqfo+5oyb-ugh@r3ppb')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,12 +87,6 @@ WSGI_APPLICATION = 'school_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-
-# ... your existing code ...
-
-# Database - keep SQLite for local, PostgreSQL for production
-
-
 # Database - keep SQLite for local, PostgreSQL for production
 DATABASES = {
     'default': {
@@ -100,13 +95,11 @@ DATABASES = {
     }
 }
 
-# Use PostgreSQL on Render (production)
 if os.environ.get('DATABASE_URL'):
     DATABASES['default'] = dj_database_url.parse(
         os.environ.get('DATABASE_URL'),
         conn_max_age=600,
     )
-    # Add SSL requirement for Supabase
     DATABASES['default']['OPTIONS'] = {
         'sslmode': 'require'
     }
@@ -151,7 +144,6 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -160,9 +152,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Cloudinary configuration
 cloudinary.config(
-    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dbwwbghdy'),
-    api_key=os.environ.get('CLOUDINARY_API_KEY', '618251283475261'),
-    api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'tF9auUpvXm7GQ5_UbKaSEeUjtFQ'),
+    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+    api_key=config('CLOUDINARY_API_KEY'),
+    api_secret=config('CLOUDINARY_API_SECRET'),
 )
 CLOUDINARY_STORAGE = {
     'SECURE': True,
@@ -170,5 +162,5 @@ CLOUDINARY_STORAGE = {
 
 # Use Cloudinary for media file storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# test 3
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
