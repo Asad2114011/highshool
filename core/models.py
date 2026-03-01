@@ -15,7 +15,7 @@ class Result(models.Model):
     exam_name=models.CharField(max_length=100)
     class_name=models.CharField(max_length=100)
     year=models.IntegerField()
-    file=models.FileField(upload_to='results/')
+    result=CloudinaryField('result_file',resource_type='raw')
     published_date=models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Result(models.Model):
     
 class class_routine(models.Model):
     class_name=models.CharField(max_length=100)
-    routine=models.FileField(upload_to='class_routine/')
+    routine=CloudinaryField('routine_file',resource_type='raw')
     published_date=models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class class_routine(models.Model):
     
 class class_syllabus(models.Model):
     class_name=models.CharField(max_length=100)
-    syllabus=models.FileField(upload_to='class_routine/')
+    syllabus=CloudinaryField('syllabus_file',resource_type='raw')
     published_date=models.DateField(auto_now_add=True)
 
     def __str__(self):

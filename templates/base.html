@@ -20,44 +20,6 @@
 
     <title>Patrakhola Arshad Ali High School</title>
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
-    <script>
-        function showPopup(title, message) {
-            const modalEl = document.getElementById('customPopupModal');
-            if (!modalEl) {
-                console.error('Modal element missing:', modalEl);
-                return;
-            }
-            const titleEl = modalEl.querySelector('.modal-title');
-            const bodyEl = modalEl.querySelector('.modal-body');
-            if (titleEl) titleEl.innerText = title;
-            if (bodyEl) bodyEl.innerText = message;
-            const modal = bootstrap.Modal.getOrCreateInstance(modalEl) || new bootstrap.Modal(modalEl);
-            modal.show();
-        }
-
-        function closePopup() {
-            const modalEl = document.getElementById('customPopupModal');
-            if (!modalEl) return;
-            const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-            if (modal) modal.hide();
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.close-navbar');
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                            toggle: false
-                        });
-                        bsCollapse.hide();
-                    }
-                });
-            });
-        });
-    </script>
 
 </head>
 
@@ -67,7 +29,7 @@
     <header class="site-header">
         <div class="header-logo">
             <a href="{% url 'home' %}">
-                <img src="{% static 'images/logo.png' %}" alt="Logo">
+                <img src="https://res.cloudinary.com/dbwwbghdy/image/upload/logo_g8uzqp" alt="Logo">
             </a>
         </div>
 
@@ -100,8 +62,7 @@
 
                     <!-- about -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">About</a>
+                        <a class="nav-link dropdown-toggle" href="#">About</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item close-navbar" href="#img">At a glance</a></li>
                             <li><a class="dropdown-item close-navbar" href="#history">History</a></li>
@@ -112,8 +73,7 @@
 
                     <!-- administration -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Administration</a>
+                        <a class="nav-link dropdown-toggle" href="#">Administration</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'governing_body' %}">Governing Body</a></li>
                             <li><a class="dropdown-item" href="{% url 'teachers' %}">Teachers</a></li>
@@ -123,8 +83,7 @@
 
                     <!-- academic -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Academic</a>
+                        <a class="nav-link dropdown-toggle" href="#">Academic</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'results' %}">Result</a></li>
                             <li><a class="dropdown-item" href="{% url 'routine_list' %}">Class Routine</a></li>
@@ -136,8 +95,7 @@
 
                     <!-- facilities -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Facilities</a>
+                        <a class="nav-link dropdown-toggle" href="#">Facilities</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'library' %}">Library</a></li>
                             <li><a class="dropdown-item" href="{% url 'science_lab' %}">Science Lab</a></li>
@@ -152,8 +110,7 @@
 
                     <!-- gallery -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Gallery</a>
+                        <a class="nav-link dropdown-toggle" href="#">Gallery</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Photo Gallery</a></li>
                             <li><a class="dropdown-item" href="#">Video Gallery</a></li>
@@ -231,18 +188,15 @@
         </h6>
     </div>
 
-    <!-- popup modal -->
-    <div class="modal fade" id="customPopupModal" tabindex="-1" aria-hidden="true">
+    <!-- popup msg  -->
+    <div class="modal fade" id="PopupMsg" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+                <div class="modal-body mb-5"></div>
             </div>
         </div>
     </div>

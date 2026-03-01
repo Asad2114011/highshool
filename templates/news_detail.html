@@ -3,7 +3,6 @@
 {% block content %}
 
 <div class="news-detail-container">
-
     <div class="news-detail-image">
         {% if card.image %}
             <img src="{{ card.image.url }}" alt="{{ card.title }}">
@@ -11,19 +10,13 @@
             <img src="{% static 'images/pic3.avif' %}" alt="No Image">
         {% endif %}
     </div>
-
     <p class="news-detail-date">Date: {{ card.date }}</p>
-
     <h2 class="news-detail-title">{{ card.title }}</h2>
-
     {% if card.description %}
     <p class="news-detail-description">{{ card.description }}</p>
     {% endif %}
-
     <div class="news-detail-back">
-        <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+        <a href="{% url 'all_news' %}" class="btn btn-lg btn-secondary"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
-
 </div>
-
 {% endblock %}

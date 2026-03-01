@@ -5,8 +5,8 @@ from django.core.paginator import Paginator
 
 def notice_list(request):
     notices=Notice.objects.all().order_by('-created_at')
+    
     paginator=Paginator(notices, 5)
-
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
 

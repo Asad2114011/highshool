@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 
-<!-- notice Bar -->
-<div class="notice-bar d-flex align-items-center px-3">
+<!-- notice bar -->
+<div class="notice-bar d-flex align-items-center p-3">
     <div class="notice-title">
         <i class="fa-solid fa-bell"></i> Latest Notice:
     </div>
@@ -11,7 +11,7 @@
         <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()"
             onmouseout="this.start()">
             {% for notice in notice %}
-            <a href="{% url 'notice_detail' notice.id %}" class="notice-link">⚡ {{ notice.title }}</a>
+            <a href="{% url 'notice_detail' notice.id %}" class="notice-link">⚡ {{notice.title}}</a>
             {% endfor %}
         </marquee>
     </div>
@@ -74,12 +74,12 @@
     </div>
 </div>
 
-<!-- mission/vision/Objectives Cards -->
+<!-- mission/vision/objectives cards -->
 <div id="mission-vision" class="cards-container">
     <div class="card"
         onclick="showPopup('MISSION','আমাদের মিশন হলো শিক্ষার্থীদের নৈতিকতা, শৃঙ্খলা ও আধুনিক জ্ঞানে সমৃদ্ধ করে একজন দায়িত্বশীল, আত্মবিশ্বাসী ও মানবিক নাগরিক হিসেবে গড়ে তোলা, যারা দেশ ও সমাজের উন্নয়নে সক্রিয় ভূমিকা রাখতে সক্ষম।')">
         <div class="card-icon">
-            <img src="{% static 'images/target.png' %}" alt="">
+            <img src="https://res.cloudinary.com/dbwwbghdy/image/upload/target_vep5zf" alt="">
         </div>
         <div class="card-body text-center">
             <h5>MISSION</h5>
@@ -89,7 +89,7 @@
     <div class="card"
         onclick="showPopup('VISION','আমাদের ভিশন হলো একটি আদর্শ শিক্ষা প্রতিষ্ঠান হিসেবে গড়ে ওঠা, যেখানে গুণগত শিক্ষা, প্রযুক্তির সঠিক ব্যবহার ও মানবিক মূল্যবোধের সমন্বয়ে ভবিষ্যৎ প্রজন্মের নেতৃত্ব তৈরি হবে।')">
         <div class="card-icon">
-            <img src="{% static 'images/vision.png' %}" alt="">
+            <img src="https://res.cloudinary.com/dbwwbghdy/image/upload/vision_qlmqqw" alt="">
         </div>
         <div class="card-body text-center">
             <h5>VISION</h5>
@@ -99,7 +99,7 @@
     <div class="card"
         onclick="showPopup('OBJECTIVES','আমাদের লক্ষ্য হলো শিক্ষার্থীদের মানসম্মত ও যুগোপযোগী শিক্ষা প্রদান করে তাদের নৈতিকতা, শৃঙ্খলা ও মানবিক মূল্যবোধে সমৃদ্ধ করে গড়ে তোলা। একই সাথে সৃজনশীল চিন্তা, সমস্যা সমাধানের দক্ষতা এবং প্রযুক্তি–ভিত্তিক জ্ঞান বিকাশের মাধ্যমে শিক্ষার্থীদের আত্মবিশ্বাসী, দক্ষ ও আত্মনির্ভরশীল নাগরিক হিসেবে প্রস্তুত করা, যারা ভবিষ্যতে সমাজ ও দেশের উন্নয়নে গুরুত্বপূর্ণ ভূমিকা রাখতে সক্ষম হবে।')">
         <div class="card-icon">
-            <img src="{% static 'images/objective.png' %}" alt="">
+            <img src="https://res.cloudinary.com/dbwwbghdy/image/upload/objective_sfpadt" alt="">
         </div>
         <div class="card-body text-center">
             <h5>OBJECTIVES</h5>
@@ -110,7 +110,7 @@
 <!-- speech section -->
 <div class="speech-section">
     <div class="speech">
-        <img src="{% static 'images/sovapoti.jpeg' %}" alt="">
+        <img src="https://res.cloudinary.com/dbwwbghdy/image/upload/tjdnoxyc0lkdqgkl8wf1" alt="">
         <div class="speech-text">
             <h4 style="font-weight: bold; text-align: center;">সভাপতি মহোদয়ের বাণী</h4>
             <p>পাতড়াখোলা আরশাদ আলী মাধ্যমিক বিদ্যালয়, বাংলাদেশের স্বনামধন্য শিক্ষাপ্রতিষ্ঠানগুলোর মধ্যে অন্যতম।এই
@@ -131,7 +131,7 @@
     <hr>
 
     <div class="speech">
-        <img src="{% static 'images/headsir.jpeg' %}" alt="">
+        <img src="https://res.cloudinary.com/dbwwbghdy/image/upload/lkeolkhyqcqhlppthu2p" alt="">
         <div class="speech-text">
             <h4 style="font-weight: bold;text-align: center;">প্রধান শিক্ষকের বাণী</h4>
             <p>পাতড়াখোলা আরশাদ আলী মাধ্যমিক বিদ্যালয়টি মেধাবী বিজ্ঞানমনষ্ক এবং সুন্দর জাতি গঠনের লক্ষ্য নিয়ে সামনের দিকে
@@ -174,8 +174,10 @@
                 <p class="news-date">Date: {{ card.date }}</p>
             </div>
             <div class="news-info">
-                <h3>{{ card.title }}</h3>
-                <a href="{% url 'news_detail' card.id %}" class="btn btn-secondary">View Details</a>
+                <a href="{% url 'news_detail' card.id %}" >
+                    <h5 class="card-title" style="font-weight: bold;" >{{ card.title }}</h5>
+                    <p>{{card.description|truncatewords:10}}</p>
+                </a>
             </div>
         </div>
         {% empty %}

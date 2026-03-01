@@ -1,12 +1,12 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from . models import NewsCard,Result,class_routine,class_syllabus,HomepageCarousel,LibraryCarousel,ScienceLabCarousel,UniformCarousel,PlaygroundCarousel
 from django.core.paginator import Paginator
 from notices.models import Notice
-from django.http import FileResponse
+from django.http import FileResponse,HttpResponse
 import calendar
 from datetime import date
-
-
+import requests
+import cloudinary,time
 
 # Create your views here.
 def home(request):
@@ -21,8 +21,8 @@ def news_details(request,pk):
 
 def all_news(request):
     cards=NewsCard.objects.all().order_by('-date')
-    paginator=Paginator(cards,8)
 
+    paginator=Paginator(cards,8)
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
 
@@ -55,21 +55,19 @@ def result_list(request):
 
 def download_result(request,pk):
     result=get_object_or_404(Result,pk=pk)
-    response=FileResponse(result.file.open('rb'),as_attachment=True,filename=f"{result.class_name}_{result.exam_name}.pdf")
-    return response
+    return redirect(result.result.url)
 
 def routine_list(request):
     routine=class_routine.objects.all().order_by('-published_date')
 
-    paginator=Paginator(routine,2)
+    paginator=Paginator(routine,10)
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
     return render(request,'routine_list.html',{'page_obj':page_obj})
 
 def routine_download(request,pk):
-    routine=get_object_or_404(class_routine,pk=pk)
-    return FileResponse(routine.routine.open('rb'),as_attachment=True)
-
+    routine = get_object_or_404(class_routine, pk=pk)
+    return redirect(routine.routine.url)
 
 def syllabus_list(request):
     syllabus=class_syllabus.objects.all().order_by('-published_date')
@@ -81,7 +79,7 @@ def syllabus_list(request):
 
 def syllabus_download(request,pk):
     syllabus=get_object_or_404(class_syllabus,pk=pk)
-    return FileResponse(syllabus.syllabus.open('rb'),as_attachment=True)
+    return redirect(syllabus.syllabus.url)
 
 def academic_calendar(request):
     today = date.today()

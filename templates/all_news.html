@@ -7,24 +7,21 @@
 
     <div class="all-news-container">
         {% for card in page_obj %}
-        <div class="all-news-card">
-
-            <!-- image -->
-            <div>
+        <div class="news-card">
+            <div class="news-img">
                 {% if card.image %}
-                    <img src="{{ card.image.url }}" alt="{{ card.title }}">
+                <img src="{{ card.image.url }}" alt="{{ card.title }}">
                 {% else %}
-                    <img src="{% static 'images/pic3.avif' %}" alt="No image">
+                <img src="{% static 'images/pic3.avif' %}" alt="No image">
                 {% endif %}
-                <p class="all-news-date">Date: {{ card.date }}</p>
+                <p class="news-date">Date: {{ card.date }}</p>
             </div>
-
-            <!-- info -->
-            <div class="all-news-info">
-                <h3>{{ card.title }}</h3>
-                <a href="{% url 'news_detail' card.id %}" class="all-news-btn">View Details</a>
+            <div class="news-info">
+                <a href="{% url 'news_detail' card.id %}" >
+                    <h5 class="card-title" style="font-weight: bold;" >{{ card.title }}</h5>
+                    <p>{{card.description|truncatewords:10}}</p>
+                </a>
             </div>
-
         </div>
         {% empty %}
             <p>No events or achievements available.</p>
