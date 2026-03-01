@@ -1,0 +1,80 @@
+
+.administration-body-header {
+    text-align: center;
+    background: linear-gradient(135deg, #bcd0f3, #accec1);
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.administration-body-header h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.administration-body-header p {
+    margin: 5px 0 0;
+    color: #333;
+}
+
+.administration-body-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.administration-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.administration-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.administration-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.administration-card h5 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.administration-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .administration-card {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .administration-card {
+        width: 90%;
+    }
+}
